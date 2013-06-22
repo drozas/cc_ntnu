@@ -1,0 +1,14 @@
+FUNC main(x, y, z)
+{
+    VAR a, b, c
+    a := -1
+    b := (3 + 5) * 2
+    c := (a + b)
+    RETURN assist ( c )
+}
+
+FUNC assist( c )
+{
+    VAR d
+    RETURN 2 * c
+}

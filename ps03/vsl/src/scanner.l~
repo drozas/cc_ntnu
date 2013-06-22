@@ -1,0 +1,46 @@
+%{
+  #include "parser.tab.h"
+%}
+
+%option array
+%option noyywrap
+
+WHITESPACE [\ \t\n]
+DIGIT [0-9]
+LETTER [A-Za-z]
+
+ /* Permit //-style line comments as well... */
+COMMENT \/\/[^\n]*\n
+
+%%
+FUNC	{ printf("scanner: reconocido FUNC: %s\n", yytext); return FUNC; }	
+:=	{ printf("scanner: reconocido ASSIGN: %s\n", yytext); return ASSIGN; }
+PRINT	{ printf("scanner: reconocido PRINT: %s\n", yytext); return PRINT; }
+RETURN	{ printf("scanner: reconocido RETURN: %s\n", yytext); return RETURN; }
+CONTINUE	{ printf("scanner: reconocido CONTINUE\n"); return CONTINUE; }
+IF		{ printf("scanner: reconocido IF: %s\n", yytext); return IF; }
+THEN		{ printf("scanner: reconocido THEN: %s\n", yytext); return THEN;}
+ELSE		{ printf("scanner: reconocido ELSE: %s\n", yytext); return ELSE; }
+FI		{ printf("scanner: reconocido FI: %s\n", yytext); return FI; }
+WHILE		{ printf("scanner: reconocido WHILE: %s\n", yytext); return WHILE; }
+DO		{ printf("scanner: reconocido DO: %s\n", yytext); return DO; }
+DONE		{ printf("scanner: reconocido DONE: %s\n", yytext); return DONE; }
+VAR		{ printf("scanner: reconocido VAR: %s\n", yytext); return VAR;}
+
+\} 		{ return '}';}
+\{ 		{ return '{'; }
+\+ 		{ return '+';}
+\- 		{ return '-'; }
+\/ 		{ return '/'; }
+\* 		{ return '*'; }
+\( 		{ return '('; }
+\) 		{ return ')'; }
+\, 		{ return ','; }
+
+{WHITESPACE}+   {}
+{COMMENT}       {printf("scanner: reconocido COMMENT: %s\n", yytext);}
+{DIGIT}+        {printf("scanner: reconocido INTEGER: %s\n", yytext); return INTEGER; }
+\"[^\"]*\"      {printf("scanner: reconocido TEXT: %s\n", yytext); return TEXT; }
+{LETTER}+	{ printf("scanner: reconocido IDENTIFIER: %s\n", yytext); return IDENTIFIER; }
+.           { printf("escaneando caracter no reconocido %s\n", yytext); return yytext[0]; }
+%%

@@ -1,0 +1,9 @@
+FUNC main ()
+{
+    VAR x,y
+    x := 16
+    y := 5
+    x := 2∗x
+    y := x/y
+    RETURN y
+}

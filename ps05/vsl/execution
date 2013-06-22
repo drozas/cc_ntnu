@@ -1,0 +1,12 @@
+->Adding entry key=_main_s0_a, value=a to the symbols table
+->Adding entry key=_main_s0_b, value=b to the symbols table
+->Adding entry key=_main_s0_c, value=c to the symbols table
+-->Pointing ocurrence of :a to symbol entry with key(scope):_main_s0_a
+-->Pointing ocurrence of :b to symbol entry with key(scope):_main_s0_b
+-->Pointing ocurrence of :c to symbol entry with key(scope):_main_s0_c
+-->Pointing ocurrence of :a to symbol entry with key(scope):_main_s0_a
+-->Pointing ocurrence of :b to symbol entry with key(scope):_main_s0_b
+-->Pointing ocurrence of :assist to symbol entry with key(scope):_main_s0_assist
+-->Pointing ocurrence of :c to symbol entry with key(scope):_main_s0_c
+->Adding entry key=_assist_c, value=c to the symbols table
+-->Pointing ocurrence of :c to symbol entry with key(scope):_assist_s1_c

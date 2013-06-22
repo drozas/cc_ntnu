@@ -1,0 +1,6 @@
+FUNC main()
+{
+    VAR a
+    a := 1
+    RETURN a
+}
